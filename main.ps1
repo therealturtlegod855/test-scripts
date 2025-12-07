@@ -1,4 +1,4 @@
-# Set execution policy (run as Admin)
+# Set execution policy (run as Admin
 Set-ExecutionPolicy -Scope CurrentUser Unrestricted -Force
 
 # Paths
