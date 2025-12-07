@@ -1,0 +1,23 @@
+name: Run Windows Script
+
+on:
+  push:
+    branches:
+      - main # Or the branch you want to trigger on
+
+jobs:
+  run_script:
+    runs-on: windows-latest # Specifies a Windows environment
+
+    steps:
+      - name: Checkout repository
+        # This step is needed if your script is in your repo
+        uses: actions/checkout@v4
+
+      - name: Execute PowerShell Script
+        shell: powershell # Explicitly use the PowerShell shell
+        run: |
+          # Replace the following lines with your actual Windows script
+          Write-Host "Executing my Windows script..."
+          # Your script goes here
+          # Example: Get-ChildItem $env:TEMP
