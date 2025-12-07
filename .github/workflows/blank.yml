@@ -1,23 +1,13 @@
-name: Run Windows Script
-
-on:
-  push:
-    branches:
-      - main # Or the branch you want to trigger on
-
+name: Run PowerShell Script
+on: [push]
 jobs:
-  run_script:
-    runs-on: windows-latest # Specifies a Windows environment
-
+  run-ps-script:
+    runs-on: windows-latest
     steps:
-      - name: Checkout repository
-        # This step is needed if your script is in your repo
-        uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v5
 
-      - name: Execute PowerShell Script
-        shell: powershell # Explicitly use the PowerShell shell
+      - name: Run main.ps1
         run: |
-          # Replace the following lines with your actual Windows script
-          Write-Host "Executing my Windows script..."
-          # Your script goes here
-          # Example: Get-ChildItem $env:TEMP
+          pwsh -File ${{ github.workspace }}\main.ps1
+        shell: pwsh   
